@@ -1,17 +1,29 @@
 #include "MonitorBanheiro.h"
+#include <stdio.h>
+#include <pthread.h>
 
-void flamenguistaQuerEntrar() {
+pthread_mutex_t mutex;
 
+void flamenguistaQuerEntrar(int id) {
+    pthread_mutex_lock(&mutex);
+    printf("flamenguisto %d esperando\n", id);
+    pthread_mutex_unlock(&mutex);
 }
 
-void flamenguistaSai() {
-
+void flamenguistaSai(int id) {
+pthread_mutex_lock(&mutex);
+    printf("flamenguisto %d saindo\n", id);
+    pthread_mutex_unlock(&mutex);
 }
 
-void vascainoQuerEntrar() {
-
+void vascainoQuerEntrar(int id) {
+pthread_mutex_lock(&mutex);
+    printf("vascaine %d esperando\n", id);
+    pthread_mutex_unlock(&mutex);
 }
 
-void vascainoSai() {
-    
+void vascainoSai(int id) {
+    pthread_mutex_lock(&mutex);
+    printf("vascaine %d saindo\n", id);
+    pthread_mutex_unlock(&mutex);
 }
