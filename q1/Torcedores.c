@@ -36,7 +36,7 @@ void* thread_vascaino(void* param) {
 
 void torcedores_instantiate() {
     pthread_t* threads = malloc(2 * THREAD_COUNT_BY_TEAM * sizeof(pthread_t));
-    for(int i = 0; i < THREAD_COUNT_BY_TEAM; i++) {
+    for(int i = 0; i < 2 * THREAD_COUNT_BY_TEAM; i++) {
         if(i % 2 == 0) {
             if (pthread_create(&threads[i], NULL, &thread_flamenguista, (void*) &i) != 0) {
                 printf("failed to create thread %d\n", i);
@@ -49,10 +49,9 @@ void torcedores_instantiate() {
             exit(1);
             }
         }
-        
     }
-    for(int i = THREAD_COUNT_BY_TEAM; i < 2*THREAD_COUNT_BY_TEAM; i++) {
-        pthread_create(&threads[i], NULL, thread_vascaino, (void*) &i);
+    for(int i = 0; i < 2 * THREAD_COUNT_BY_TEAM; i++) {
+        pthread_join(threads[i], NULL);
     }
     free(threads);
 }
