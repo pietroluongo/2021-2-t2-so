@@ -16,7 +16,8 @@ void* thread_flamenguista(void* param) {
         printf ("Eu sou flamenguista %d: ... UFA! Entrei no banheiro!\n",*id);
         sleep(5);
         flamenguistaSai(*id);
-        printf ("Eu sou flamenguista %d: ... Estou aliviado! Vou torcer!\n",*id); sleep(5);
+        printf ("Eu sou flamenguista %d: ... Estou aliviado! Vou torcer!\n",*id); 
+        sleep(500);
     }
     pthread_exit(0);
 }
@@ -29,7 +30,8 @@ void* thread_vascaino(void* param) {
         printf ("Eu sou vascaino %d: ... UFA! Entrei no banheiro!\n",*id);
         sleep(5);
         vascainoSai(*id);
-        printf ("Eu sou vascaino %d: ... Estou aliviado! Vou torcer!\n",*id); sleep(5);
+        printf ("Eu sou vascaino %d: ... Estou aliviado! Vou torcer!\n",*id);
+        sleep(500);
     }
     pthread_exit(0);
 }
