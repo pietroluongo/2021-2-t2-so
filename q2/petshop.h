@@ -11,7 +11,6 @@
 // dog = 1
 // cat = 2
 typedef struct petshop {
-    unsigned int typeOfAnimalBeingTreated;
     unsigned int maxPetsInRoom;
     unsigned int dogsWaiting;
     unsigned int catsWaiting;
@@ -19,8 +18,6 @@ typedef struct petshop {
     unsigned int catsBeingTreated;
     pthread_mutex_t dogMutex;
     pthread_mutex_t catMutex;
-    pthread_cond_t dogCond;
-    pthread_cond_t catCond;
     sem_t roomAvailable;
 } Petshop;
 

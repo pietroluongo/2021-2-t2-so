@@ -42,10 +42,6 @@ void ps_mainLoop(Petshop* ps, int nDogs, int nCats) {
     }
 }
 
-void* ps_animal_chegou(void* argv) {
-
-}
-
 void* ps_um_cao_quer_servico(void* psid) {
     petshopid* petshopandid = (petshopid*)psid;
     Petshop* ps = petshopandid->ps;
